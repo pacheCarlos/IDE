@@ -1,0 +1,6 @@
+modificar el archivo config.properties 
+con la carpeta o el comando usado para compilar c.
+
+Andres Camilo Beltrán González  codigo -> 59750 telefono -> 3138562830
+Valentina Alvarado Ortegón 	codigo -> 72253 telefono -> 3107946423
+Daniel Esteban Bustamante Tamayo codigo -> 70775 telefono -> 3132400322
