@@ -1,7 +1,2 @@
-Nombre 				| Codigo | Numero Celular
-• Carlos Alberto Martín Castro 	 - 71114 - 3102152500
-• Carlos Eduardo Martínez Cantor - 70445 - 3164205106
-• William Daniel Solano Padrón 	 - 71140 - 3224827665
-• Julián Esteban Villalba Dimaté - 72500 - 3204737574
-• Duvan Felipe Motavita Torres 	 - 72261 - 3123291242
-• Paula Camila Mogollón Villalba - 72502 - 3012811373
+Arley Nova Salgado codigo: 30912, celular: 3212152227
+Miller Perilla Acosta Codigo: 5053, celular: 3118278617
