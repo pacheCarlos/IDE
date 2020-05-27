@@ -20,6 +20,7 @@ public class GUIIDE extends javax.swing.JFrame {
     public GUIIDE() {
         initComponents();
     }
+    private File archivo = null;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,9 +70,19 @@ public class GUIIDE extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Guardar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Limpiar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -87,6 +98,11 @@ public class GUIIDE extends javax.swing.JFrame {
         jMenu2.add(jMenuItem4);
 
         jMenuItem5.setText("Ejecutar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
@@ -115,26 +131,62 @@ public class GUIIDE extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        // Compilar
+        if (archivo != null){
+           jTextArea2.setText("Compilar: " +archivo.getName());
+           System.out.println(archivo.getName());
+           puerto.PuertoControlador.obtenerControlador().Compilar(archivo, jTextArea2);
+            
+       }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       JFileChooser jf = new JFileChooser();
+       //Abirr
+        JFileChooser jf = new JFileChooser();
        jf.showOpenDialog(this);
-       File archivo = jf.getSelectedFile();
+       archivo = jf.getSelectedFile();
        if (archivo != null){
            jTextArea2.setText("abriendo: " +archivo.getName());
            System.out.println(archivo.getName());
+           puerto.PuertoControlador.obtenerControlador().Abrir(archivo, jTextArea1);
+            
        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // Guardar
+        if (archivo != null){
+            puerto.PuertoControlador.obtenerControlador().Guardar(archivo, jTextArea1);
+            jTextArea2.setText("Salvar: " +archivo.getName());
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // Limpiar
+         if (archivo != null){
+            puerto.PuertoControlador.obtenerControlador().Limpiar(jTextArea1);
+            archivo= null;
+            jTextArea2.setText("Limpiar. " );
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // Ejecutar
+        if (archivo != null){
+           jTextArea2.setText("Ejecutar: " +archivo.getName());
+           System.out.println(archivo.getName());
+           puerto.PuertoControlador.obtenerControlador().Ejecutar(archivo);
+            
+       }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
